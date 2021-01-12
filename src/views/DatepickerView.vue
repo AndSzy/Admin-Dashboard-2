@@ -1,22 +1,31 @@
 <template>
-  <div class="home">
-    <zoom-chart v-if="charts[1]" :chart="charts[1]"></zoom-chart>
+  <div id="datepicker">
+      <!-- My Datepicker -->
+      <my-datepicker></my-datepicker>
+
+      <chart-with-custom-datepicker v-if="charts[1]" :chart="charts[1]">
+
+        <!-- My Datepicker -->
+      <my-datepicker></my-datepicker>
+          
+      </chart-with-custom-datepicker>
   </div>
 </template>
 
 <script>
-import ZoomChart from '../charts/ZoomChart.vue'
+import MyDatepicker from "../components/MyDatepicker.vue"
+import ChartWithCustomDatepicker from "../charts/ChartWithCustomDatepicker.vue"
+
 import { dataset1, dataset2 } from "../utilities/mock/MockData.js";
 
 import { v4 as uuidv4 } from "uuid";
 
-
 export default {
-  name: 'Home',
-  components: {
-    ZoomChart
-  },
-  data() {
+    components: {
+        MyDatepicker,
+        ChartWithCustomDatepicker
+    },
+    data() {
     return {
       dataset1,
       dataset2,
@@ -24,6 +33,9 @@ export default {
     };
   },
   methods: {
+      customEvent() {
+          console.log("custom");
+      },
     newComponent(newChart) {
       let newChartObject = {};
       newChartObject.id = uuidv4();
@@ -64,3 +76,13 @@ export default {
   },
 }
 </script>
+
+<style>
+#datepicker {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    grid-gap: 50px;
+}
+</style>
