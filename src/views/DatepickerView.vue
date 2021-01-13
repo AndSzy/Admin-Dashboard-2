@@ -1,20 +1,20 @@
 <template>
   <div id="datepicker">
       <!-- My Datepicker -->
-      <my-datepicker></my-datepicker>
+      <my-datepicker v-model="pickerdata"></my-datepicker>
 
-      <chart-with-custom-datepicker v-if="charts[1]" :chart="charts[1]">
+      <!--<chart-with-custom-datepicker v-if="charts[1]" :chart="charts[1]">-->
 
         <!-- My Datepicker -->
-      <my-datepicker></my-datepicker>
+      <!--<my-datepicker></my-datepicker>-->
           
-      </chart-with-custom-datepicker>
+      <!--</chart-with-custom-datepicker>-->
   </div>
 </template>
 
 <script>
 import MyDatepicker from "../components/MyDatepicker.vue"
-import ChartWithCustomDatepicker from "../charts/ChartWithCustomDatepicker.vue"
+// import ChartWithCustomDatepicker from "../charts/ChartWithCustomDatepicker.vue"
 
 import { dataset1, dataset2 } from "../utilities/mock/MockData.js";
 
@@ -23,10 +23,14 @@ import { v4 as uuidv4 } from "uuid";
 export default {
     components: {
         MyDatepicker,
-        ChartWithCustomDatepicker
+        // ChartWithCustomDatepicker
     },
     data() {
     return {
+      pickerdata: {
+        start: new Date(),
+        end: new Date()
+      },
       dataset1,
       dataset2,
       charts: [],
