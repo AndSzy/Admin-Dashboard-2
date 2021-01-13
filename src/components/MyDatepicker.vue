@@ -19,11 +19,11 @@ export default {
           required: true
       }
   },
-  methods: {
-    emitToParent(value) {
-      this.$parent.$emit('clicked', value)
-    }
-  }
+  // methods: {
+  //   emitToParent(value) {
+  //     this.$parent.$emit('clicked', value)
+  //   }
+  // }
 }
 </script>
 

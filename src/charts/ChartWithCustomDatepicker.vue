@@ -10,6 +10,7 @@
         <b-button @click="showPeriod(90)">3M</b-button>
         <b-button @click="showPeriod(360)">1Y</b-button>
         <b-button @click="showPeriod(chart.dataset.length - 1)">All</b-button>
+        <b-button @click="customValue()">Custom</b-button>
       </b-row>
 
       <!-- datepicker from  vuejs-datepicker-->
@@ -49,10 +50,7 @@
 export default {
   mounted() {
     // call this to triger zoom event and update this.value
-
     this.showPeriod(this.chart.dataset.length - 1);
-
-
   },
   props: {
       value: {
@@ -118,19 +116,18 @@ export default {
       },
     };
   },
-  // watch: {
-  //   value: {
-  //     deep: true,
-  //     handler() {
-  //       console.log(this.value.start);
-  //       this.$refs[this.chart.id].zoomto({
-  //       kmin: this.value.start,
-  //       kmax: this.value.end,
-  //     });
-  //     }
-  //   }
-  // },
+  watch: {
+    value: {
+      deep: true,
+      handler() {
+        console.log("value changed");  
+      }
+    }
+  },
   methods: {
+    customValue() {
+      this.showCustom(this.value.start, this.value.end)
+    },
     zoomEvent(e) {
       this.value.start = new Date(e.kmin);
       this.value.end = new Date(e.kmax);
