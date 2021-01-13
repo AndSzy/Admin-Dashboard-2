@@ -14,12 +14,14 @@
 
       <!-- datepicker from  vuejs-datepicker-->
       
-      <b-row align-h="start">
+      <!-- <b-row align-h="start">
         <b-form inline>
           <datepicker v-model="startDate" @input="showCustom(startDate, endDate)"></datepicker>
           <datepicker v-model="endDate" @input="showCustom(startDate, endDate)"></datepicker>
         </b-form>
-      </b-row>
+      </b-row> -->
+
+      
 
 
     <!-- Slot for custom datepicker -->
@@ -43,19 +45,23 @@
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker";
 
 export default {
-  props: ["chart"],
-  components: {
-      Datepicker
+  mounted() {
+    this.$on('clicked', this.alertFromSlot )
+  },
+  props: {
+      value: {
+          type: Object,
+          required: true
+      },
+      chart: {
+        type: Object,
+        required: true
+      }
   },
   data() {
     return {
-      startDate: new Date(this.chart.dataset[0][0][0]),
-      endDate: new Date(
-        this.chart.dataset[this.chart.dataset.length - 1][0][0]
-      ),
       chartData: {
         type: this.chart.chartType,
         // preview: {},
@@ -69,7 +75,7 @@ export default {
         scaleX: {
           label: { text: "Time" },
           zooming: true,
-          itemsOverlap: true,
+        //   itemsOverlap: true,
           // number of lables below x-line
           maxItems: 5,
           item: {
@@ -91,27 +97,31 @@ export default {
           },
         },
         plot: {
+            
           // Line chart
           "line-color": this.chart.color,
+          
           // Bar chart
           "background-color": this.chart.color,
+          
         },
         series: [
           {
             values: this.chart.dataset,
+            // samplingStep: 2,
           },
         ],
       },
     };
   },
   methods: {
-      datepickerAlert() {
-          console.log("alert");
-      },
+    alertFromSlot(start, end) {
+      console.log(start);
+      console.log(end);
+    },
     zoomEvent(e) {
-      console.log("zoom!");
-      this.startDate = new Date(e.kmin);
-      this.endDate = new Date(e.kmax);
+      this.value.start = new Date(e.kmin);
+      this.value.end = new Date(e.kmax);
     },
     showPeriod(period) {
       const lastEntry = this.chart.dataset.length - 1;

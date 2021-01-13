@@ -3,8 +3,10 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/draggable">Vue Draggable</router-link> |
+      <router-link to="/draggable-swap">Vue Draggable - Swap</router-link> |
       <router-link to="/sidebar">Sidebar</router-link> |
-      <router-link to="/datepicker">Datepicker</router-link>
+      <router-link to="/datepicker">Datepicker</router-link> |
+      <router-link to="/dashboard">Dashboard</router-link>
     </div>
     <router-view/>
   </div>

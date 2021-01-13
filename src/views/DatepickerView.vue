@@ -1,36 +1,36 @@
 <template>
   <div id="datepicker">
-      <!-- My Datepicker -->
+    <chart-with-custom-datepicker
+      v-if="charts[1]"
+      :chart="charts[1]"
+      v-model="pickerdata"
+    >
+
       <my-datepicker v-model="pickerdata"></my-datepicker>
-      <input v-model="pickerdata.start" />
-
-      <!--<chart-with-custom-datepicker v-if="charts[1]" :chart="charts[1]">-->
-
-        <!-- My Datepicker -->
-      <!--<my-datepicker></my-datepicker>-->
-          
-      <!--</chart-with-custom-datepicker>-->
+      
+    </chart-with-custom-datepicker>
   </div>
 </template>
 
 <script>
-import MyDatepicker from "../components/MyDatepicker.vue"
-// import ChartWithCustomDatepicker from "../charts/ChartWithCustomDatepicker.vue"
+import MyDatepicker from "../components/MyDatepicker.vue";
+import ChartWithCustomDatepicker from "../charts/ChartWithCustomDatepicker.vue";
 
 import { dataset1, dataset2 } from "../utilities/mock/MockData.js";
 
 import { v4 as uuidv4 } from "uuid";
 
 export default {
-    components: {
-        MyDatepicker,
-        // ChartWithCustomDatepicker
-    },
-    data() {
+  components: {
+    MyDatepicker,
+    ChartWithCustomDatepicker,
+  },
+  data() {
     return {
+      // Popraweczki
       pickerdata: {
         start: new Date(),
-        end: new Date()
+        end: new Date(),
       },
       dataset1,
       dataset2,
@@ -38,9 +38,9 @@ export default {
     };
   },
   methods: {
-      customEvent() {
-          console.log("custom");
-      },
+    customEvent() {
+      console.log("custom");
+    },
     newComponent(newChart) {
       let newChartObject = {};
       newChartObject.id = uuidv4();
@@ -56,7 +56,7 @@ export default {
       this.charts.push(newChartObject);
     },
   },
-   mounted() {
+  mounted() {
     this.newComponent({
       color: "red",
       chartType: "line",
@@ -77,17 +77,16 @@ export default {
       chartType: "line",
       datasetName: "data1",
     });
-
   },
-}
+};
 </script>
 
 <style>
 #datepicker {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    flex-direction: column;
-    grid-gap: 50px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 50px;
 }
 </style>

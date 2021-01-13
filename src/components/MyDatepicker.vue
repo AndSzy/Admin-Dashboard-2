@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <datepicker v-model="value.start" class="myDatepicker"></datepicker>
+  <div class="myDatepicker-container">
+    <datepicker v-model="value.start" class="myDatepicker" @input="emitToParent(value.start, value.end)"></datepicker>
     <datepicker v-model="value.end" class="myDatepicker"></datepicker>
   </div>
 </template>
@@ -18,11 +18,19 @@ export default {
           type: Object,
           required: true
       }
+  },
+  methods: {
+    emitToParent(value) {
+      this.$parent.$emit('clicked', value)
+    }
   }
 }
 </script>
 
 <style>
+.myDatepicker-container {
+  display: flex;
+}
 .myDatepicker input {
     background-color: rgb(214, 203, 203);
 }

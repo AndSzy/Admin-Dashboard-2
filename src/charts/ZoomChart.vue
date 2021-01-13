@@ -67,7 +67,7 @@ export default {
           step: "day",
           transform: {
             type: "date",
-            all: "%m/%d/%Y<br>%h:%i:%s:%q %A",
+            all: "%m/%d/%Y",
           },
         },
         scaleY: {

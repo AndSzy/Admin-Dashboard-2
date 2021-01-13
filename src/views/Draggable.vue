@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <draggable v-model="charts">
+    <draggable v-model="charts" :move="handleMove" @end="handleDragEnd">
       <transition-group tag="div" class="grid" name="grid">
         <the-card v-for="item in charts" :key="item.id">
           <zoom-chart :chart="item"></zoom-chart>
@@ -33,6 +33,22 @@ export default {
     };
   },
   methods: {
+    handleMove(e) {
+      const { index, futureIndex } = e.draggedContext;
+      this.movingIndex = index;
+      this.futureIndex = futureIndex;
+      return false; // disable sort
+    },
+    handleDragEnd() {
+      this.futureItem = this.charts[this.futureIndex];
+      this.movingItem = this.charts[this.movingIndex];
+      const _charts = Object.assign([], this.charts);
+
+      _charts[this.futureIndex] = this.movingItem;
+      _charts[this.movingIndex] = this.futureItem;
+
+      this.charts = _charts;
+    },
     newComponent(newChart) {
       let newChartObject = {};
       newChartObject.id = uuidv4();
@@ -84,7 +100,6 @@ export default {
       chartType: "line",
       datasetName: "data1",
     });
-    
   },
 };
 </script>
@@ -112,6 +127,4 @@ export default {
     grid-template-columns: repeat(3, 30vw);
   }
 }
-
-
 </style>

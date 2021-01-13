@@ -19,6 +19,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Draggable.vue')
   },
   {
+    path: '/draggable-swap',
+    name: 'DraggableSwap',
+    component: () => import('../views/DraggableWithSwapView.vue')
+  },
+  {
     path: '/sidebar',
     name: 'Sidebar',
     component: () => import('../views/SidebarView.vue')
@@ -27,6 +32,11 @@ const routes = [
     path: '/datepicker',
     name: 'Datepicker',
     component: () => import('../views/DatepickerView.vue')
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import('../views/DashboardView.vue')
   }
 ]
 
