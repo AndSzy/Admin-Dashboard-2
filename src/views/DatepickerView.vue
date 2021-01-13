@@ -2,6 +2,7 @@
   <div id="datepicker">
       <!-- My Datepicker -->
       <my-datepicker v-model="pickerdata"></my-datepicker>
+      <input v-model="pickerdata.start" />
 
       <!--<chart-with-custom-datepicker v-if="charts[1]" :chart="charts[1]">-->
 
