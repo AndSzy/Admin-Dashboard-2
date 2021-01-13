@@ -1,7 +1,7 @@
 <template>
   <div class="myDatepicker-container">
-    <datepicker v-model="value.start" class="myDatepicker" ></datepicker>
-    <datepicker v-model="value.end" class="myDatepicker"></datepicker>
+    <datepicker v-model="value.start" class="myDatepicker" @input="emitToParent"></datepicker>
+    <datepicker v-model="value.end" class="myDatepicker" @input="emitToParent"></datepicker>
   </div>
 </template>
 
@@ -19,11 +19,11 @@ export default {
           required: true
       }
   },
-  // methods: {
-  //   emitToParent(value) {
-  //     this.$parent.$emit('clicked', value)
-  //   }
-  // }
+  methods: {
+    emitToParent() {
+      this.$parent.$emit('datepickerInputChanged')
+    }
+  }
 }
 </script>
 

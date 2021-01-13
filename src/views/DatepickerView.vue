@@ -5,7 +5,7 @@
       :chart="charts[1]"
       v-model="pickerdata"
     >
-
+      <!-- This goes inside slot -->
       <my-datepicker v-model="pickerdata"></my-datepicker>
       
     </chart-with-custom-datepicker>
