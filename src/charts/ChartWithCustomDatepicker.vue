@@ -48,7 +48,11 @@
 
 export default {
   mounted() {
-    this.$on('clicked', this.alertFromSlot )
+    // call this to triger zoom event and update this.value
+
+    this.showPeriod(this.chart.dataset.length - 1);
+
+
   },
   props: {
       value: {
@@ -114,11 +118,19 @@ export default {
       },
     };
   },
+  // watch: {
+  //   value: {
+  //     deep: true,
+  //     handler() {
+  //       console.log(this.value.start);
+  //       this.$refs[this.chart.id].zoomto({
+  //       kmin: this.value.start,
+  //       kmax: this.value.end,
+  //     });
+  //     }
+  //   }
+  // },
   methods: {
-    alertFromSlot(start, end) {
-      console.log(start);
-      console.log(end);
-    },
     zoomEvent(e) {
       this.value.start = new Date(e.kmin);
       this.value.end = new Date(e.kmax);

@@ -1,6 +1,6 @@
 <template>
   <div class="myDatepicker-container">
-    <datepicker v-model="value.start" class="myDatepicker" @input="emitToParent(value.start, value.end)"></datepicker>
+    <datepicker v-model="value.start" class="myDatepicker" ></datepicker>
     <datepicker v-model="value.end" class="myDatepicker"></datepicker>
   </div>
 </template>
