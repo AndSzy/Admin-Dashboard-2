@@ -1,5 +1,12 @@
 <template>
-  <sidebar-menu :menu="menu" :collapsed="false" :showChild="false">
+  <sidebar-menu
+    :menu="menu"
+    :collapsed="sidebardata.collapsed"
+    :showChild="false"
+    :hideToggle="true"
+    :width="sidebardata.width"
+    :relative="false"
+  >
     <template v-slot:toggle-icon>
       <b-icon-three-dots></b-icon-three-dots>
     </template>
@@ -13,20 +20,16 @@
 // To use the icons, font awesome is needed.
 
 <script>
-// import { SidebarMenu } from 'vue-sidebar-menu'
 export default {
-  components: {
-    // SidebarMenu
+  props: {
+    sidebardata: {
+      type: Object,
+      required: true,
+    },
   },
   data() {
     return {
       menu: [
-        {
-          header: true,
-          title: "Main Navigation",
-          hiddenOnCollapse: true,
-        },
-
         {
           href: "/",
           title: "Home",
@@ -69,7 +72,7 @@ export default {
           },
           child: [
             {
-            //   href: "/charts/sublink",
+              //   href: "/charts/sublink",
               title: "Line",
               icon: {
                 element: "font-awesome-icon",
@@ -80,7 +83,7 @@ export default {
             },
 
             {
-            //   href: "/charts/sublink",
+              //   href: "/charts/sublink",
               title: "Bar",
               icon: {
                 element: "font-awesome-icon",
@@ -91,7 +94,7 @@ export default {
             },
 
             {
-            //   href: "/charts/sublink",
+              //   href: "/charts/sublink",
               title: "Gauge",
               icon: {
                 element: "font-awesome-icon",
@@ -100,7 +103,6 @@ export default {
                 },
               },
             },
-
           ],
         },
       ],
@@ -111,10 +113,23 @@ export default {
 
 <style>
 .v-sidebar-menu {
+  background-color: var(--steelblue);
+  position: fixed;
+  top: 80px;
+  height: 100vh;
+  /* padding-left: 16px; */
   /* background-color: red; */
 }
 
-.v-sidebar-menu .vsm--toggle-btn {
-  order: -1;
+.v-sidebar-menu .vsm--dropdown .vsm--list {
+  background-color: var(--steelblue);
+}
+
+.v-sidebar-menu .vsm--link_level-1 .vsm--icon {
+    background-color: var(--steelblue);
+}
+
+.v-sidebar-menu .vsm--item:first-child {
+  margin-top: 21px;
 }
 </style>
