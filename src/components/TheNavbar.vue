@@ -1,8 +1,8 @@
 <template>
-  <b-navbar type="dark" variant="info" id="myNav">
+  <b-navbar type="dark" variant="info" id="myNav" :sticky="true">
     <!-- Navbar Brand -->
     <b-navbar-brand to="/">
-      <font-awesome-icon icon="chess-rook" size="lg" class="theme-logo" />
+      <font-awesome-icon icon="chess-rook" size="2x" class="theme-logo" />
       <span class="theme-text">ROOK</span>
     </b-navbar-brand>
 
@@ -19,9 +19,11 @@
     <!-- Bread Crumbs -->
 
     <b-navbar-nav class="nav-breadcrumb">
-        <b-nav-item>
-      <b-breadcrumb :items="items" class="black-text"></b-breadcrumb>
-      </b-nav-item>
+        <b-nav-text>
+          <span class="path">Main / </span>
+          <span class="active">Dashboard1 </span>  
+      <!-- <b-breadcrumb :items="items" class="black-text"></b-breadcrumb> -->
+      </b-nav-text>
     </b-navbar-nav>
     
 
@@ -47,20 +49,23 @@
 export default {
       data() {
       return {
-        items: [
-          {
-            text: 'Admin',
-            href: '#'
-          },
-          {
-            text: 'Manage',
-            href: '#'
-          },
-          {
-            text: 'Library',
-            active: true
-          }
-        ]
+        // items: [
+        //   {
+        //     text: 'Admin',
+        //     href: '#'
+        //   },
+        //   {
+        //     text: 'Manage',
+        //     href: '#'
+        //   },
+        //   {
+        //     text: 'Library',
+        //     active: true
+        //   }
+        // ],
+
+
+
       }
     }
 };
@@ -70,24 +75,60 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
 
 .navbar {
+  z-index: 9999;
   font-family: "Nunito Sans", sans-serif;
   background-color: var(--darkblue) !important;
+  height: 55px;
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
+  padding-left: 14px;
 }
 .navbar-brand .theme-text {
   padding: 0 0.8rem;
   font-size: 24px !important;
   font-weight: 700;
+  /* line-height: 2.75rem; */
 }
+
+@media (max-width: 844px ) {
+  .navbar-brand .theme-text {
+    display: none;
+  }
+}
+
+
+
+/* Mock Breadcrumbs */
+
+
+.nav-breadcrumb {
+  padding-left: 20px;
+}
+
+.nav-breadcrumb span {
+  cursor: pointer;
+}
+
+.nav-breadcrumb .active{
+  color: white;
+}
+
+@media (max-width: 633px ) {
+  .nav-breadcrumb .path {
+  display: none;
+}
+}
+
+
+/* Breadcrumbs */
 
 /* .navbar .nav-breadcrumb {
     background-color: red;
 } */
-.navbar .nav-breadcrumb .breadcrumb {
+/* .navbar .nav-breadcrumb .breadcrumb {
     background-color: var(--darkblue);
     margin: 0;
 }
@@ -99,6 +140,6 @@ export default {
 }
 .navbar .nav-breadcrumb .breadcrumb-item.active span {
         color: #fff;
-}
+} */
 
 </style>

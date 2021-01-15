@@ -37,6 +37,10 @@
 <script>
 export default {
   props: ["chart"],
+  mounted() {
+    let random = Math.floor(Math.random() * 10) + 5;
+    this.showPeriod(random);
+  },
   data() {
     return {
       startDate: new Date(this.chart.dataset[0][0][0]),
@@ -93,7 +97,7 @@ export default {
   },
   methods: {
     zoomEvent(e) {
-      console.log("zoom!");
+      // console.log("zoom!");
       this.startDate = new Date(e.kmin);
       this.endDate = new Date(e.kmax);
     },

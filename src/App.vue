@@ -17,6 +17,7 @@
 :root {
   --darkblue: #33637a;
   --steelblue: #2d7293;
+  --cork-background: #e7e9ee;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

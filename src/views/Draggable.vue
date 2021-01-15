@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  
     <draggable v-model="charts" :move="handleMove" @end="handleDragEnd">
       <transition-group tag="div" class="grid" name="grid">
         <the-card v-for="item in charts" :key="item.id">
@@ -7,7 +7,7 @@
         </the-card>
       </transition-group>
     </draggable>
-  </div>
+  
 </template>
 
 <script>
@@ -106,9 +106,10 @@ export default {
 
 <style scoped>
 .grid {
+  background-color: var(--cork-background);
   display: grid;
-  grid-template-columns: 90vw;
-  grid-gap: 0.2em;
+  grid-template-columns: 90%;
+  grid-gap: 15px;
   justify-content: center;
 }
 
@@ -118,13 +119,13 @@ export default {
 
 @media (min-width: 600px) {
   .grid {
-    grid-template-columns: repeat(2, 45vw);
+    grid-template-columns: repeat(2, 45%);
   }
 }
 
 @media (min-width: 1200px) {
   .grid {
-    grid-template-columns: repeat(3, 30vw);
+    grid-template-columns: repeat(3, 32%);
   }
 }
 </style>
