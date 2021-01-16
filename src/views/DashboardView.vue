@@ -46,8 +46,9 @@ export default {
     return {
       sidebardata: {
         collapsed: window.innerWidth <= 1090 ? true : false,
-        widthCollapsed: window.innerWidth <= 600 ? "0" : "50px",
+        widthCollapsed: "50px",
         width: "212px",
+        hideOnMobile: window.innerWidth <= 600 ? true : false
       },
     };
   },
@@ -67,9 +68,9 @@ export default {
       }
 
       if (window.innerWidth < 600) {
-        this.sidebardata.widthCollapsed = "0";
+        this.sidebardata.hideOnMobile = true;
       } else if (window.innerWidth >= 600) {
-        this.sidebardata.widthCollapsed = "50px";
+        this.sidebardata.hideOnMobile = false;
       }
     });
   },
@@ -134,9 +135,9 @@ export default {
 }
 } */
 
-/* Sidebar styling */
+/* Sidebar styling - adding padding */
 
-.main-container.sidebarOpen + .v-sidebar-menu .vsm--item {
+/* .main-container.sidebarOpen + .v-sidebar-menu .vsm--item {
   padding-left: 15px;
 }
 
@@ -145,5 +146,5 @@ export default {
   padding-right: 15px;
   margin-bottom: 4px;
   
-}
+} */
 </style>

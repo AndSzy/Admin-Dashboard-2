@@ -8,6 +8,7 @@
     :widthCollapsed="sidebardata.widthCollapsed"
     :relative="false"
     :disableHover="true"
+    :class="{hidden: sidebardata.hideOnMobile}"
   >
     <template v-slot:toggle-icon>
       <b-icon-three-dots></b-icon-three-dots>
@@ -115,6 +116,21 @@ export default {
 
 <style>
 
+/* Collapsing the sidebar */
+
+/* .v-sidebar-menu {
+  transition: 0.3s all;
+} */
+
+
+.v-sidebar-menu.vsm_collapsed.hidden {
+  transform: translateX(-100%);
+}
+
+/* .v-sidebar-menu.hidden {
+  transform: translateX(-100%);
+} */
+
 /* Styling everything */
 
 .v-sidebar-menu {
@@ -125,22 +141,10 @@ export default {
   position: fixed;
   top: 55px;
   height: 100vh;
-  /* padding-left: 16px; */
 }
 
 /* Styling items */
 
-/* .v-sidebar-menu .vsm--item {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 4px;
-  
-} */
-
-.v-sidebar-menu .vsm--item a {
-  /* background-color: red; */
-  border-radius: 6px;
-}
 
 /* Styling first child */
 
@@ -148,16 +152,19 @@ export default {
   margin-top: 21px;
 }
 
-/* .v-sidebar-menu .vsm--item:last-child {
-  padding: 0px;
-} */
+
+
+.v-sidebar-menu .vsm--item .vsm--link {
+  border-radius: 6px;
+  /* padding: 0; */
+}
 
 /* Styling items text */
-.v-sidebar-menu .vsm--link {
+
+.v-sidebar-menu .vsm--item .vsm--link .vsm--title {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
-  /* padding: 0; */
 }
 
 /* Styling dropdown lists */
@@ -175,13 +182,10 @@ export default {
 
 .v-sidebar-menu .vsm--link_level-1 .vsm--icon {
     background-color: transparent;
+    padding: 5px;
 }
 
-/* Styling icon size */
 
-.v-sidebar-menu .vsm--link_level-1 .svg-inline--fa {
-  padding: 5px;
-}
 
 /* Styling items and icons on hover */
 
@@ -189,15 +193,31 @@ export default {
   background-color: var(--darkblue)
 }
 
+.v-sidebar-menu.vsm_collapsed .vsm--link_level-1:hover .vsm--icon {
+  background-color: var(--darkblue);
+}
+
 /* Styling expanded item  and icon */
 
 .v-sidebar-menu.vsm_expanded .vsm--item_open .vsm--link_level-1   {
-  background-color: #42809d ;
+  background-color: #42809d;
 }
+
+/* #42809d */
 
 .v-sidebar-menu.vsm_expanded .vsm--item_open .vsm--link_level-1 .vsm--icon {
   background-color: transparent;
 }
+
+.v-sidebar-menu .vsm--mobile-bg {
+  background-color: var(--darkblue);
+}
+
+.v-sidebar-menu.vsm_collapsed .vsm--link_level-1.vsm--link_hover .vsm--icon {
+  background-color: var(--darkblue);
+}
+
+
 
 
 
