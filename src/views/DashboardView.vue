@@ -2,12 +2,14 @@
   <div class="dashboard-view">
     <!-- The Navbar -->
     <the-navbar>
+      <b-nav-item @click="toggleSidebar">
       <font-awesome-icon
         icon="bars"
         size="lg"
         class="theme-logo"
-        @click="toggleSidebar"
+        
       />
+      </b-nav-item>
     </the-navbar>
 
     

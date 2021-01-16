@@ -11,9 +11,9 @@
     <!-- Slot for The Toggle Button -->
 
     <b-navbar-nav>
-      <b-nav-item>
+      
           <slot></slot>
-      </b-nav-item>
+      
     </b-navbar-nav>
 
     <!-- Bread Crumbs -->
