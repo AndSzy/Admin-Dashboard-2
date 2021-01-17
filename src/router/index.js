@@ -42,6 +42,11 @@ const routes = [
     path: '/navbar',
     name: 'Navbar',
     component: () => import('../views/NavbarView.vue')
+  },
+  {
+    path: '/breadcrumbs',
+    name: 'Breadcrumbs',
+    component: () => import('../views/BreadcrumbsView.vue')
   }
 ]
 

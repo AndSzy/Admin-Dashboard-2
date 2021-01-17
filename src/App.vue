@@ -7,6 +7,7 @@
       <router-link to="/sidebar">Sidebar</router-link> |
       <router-link to="/datepicker">Datepicker</router-link> |
       <router-link to="/navbar">Navbar</router-link> |
+      <router-link to="/breadcrumbs">Breadcrumbs</router-link> |
       <router-link to="/dashboard">Dashboard</router-link>
     </div>
     <router-view/>

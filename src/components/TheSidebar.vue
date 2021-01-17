@@ -1,5 +1,6 @@
 <template>
   <sidebar-menu
+    @item-click="onItemClick"
     :menu="menu"
     :collapsed="sidebardata.collapsed"
     :showChild="sidebardata.showChild"
@@ -7,7 +8,7 @@
     :width="sidebardata.width"
     :widthCollapsed="sidebardata.widthCollapsed"
     :disableHover="sidebardata.disableHover"
-    :class="{hidden: sidebardata.hideOnMobile}"
+    :class="{ hidden: sidebardata.hideOnMobile }"
   >
     <template v-slot:toggle-icon>
       <b-icon-three-dots></b-icon-three-dots>
@@ -29,6 +30,17 @@ export default {
       required: true,
     },
   },
+  methods: {
+    // onItemClick(event, item, node)
+    onItemClick(event, node) {
+      let expandableList = document.querySelector(".v-sidebar-menu .vsm--mobile-item");
+      if (node.child) {
+        expandableList.style.display = "block";
+      } else {
+        expandableList.style.display = "none";
+      }
+    },
+  },
   data() {
     return {
       menu: [
@@ -43,7 +55,7 @@ export default {
           },
         },
         {
-          href: "draggable",
+          href: "dashboard",
           title: "Vue Draggable",
           icon: {
             element: "font-awesome-icon",
@@ -53,7 +65,7 @@ export default {
           },
         },
         {
-          href: "sidebar",
+          href: "dashboard",
           title: "Sidebar",
           icon: {
             element: "font-awesome-icon",
@@ -114,13 +126,11 @@ export default {
 </script>
 
 <style>
-
 /* Collapsing the sidebar */
 
 .v-sidebar-menu.vsm_collapsed.hidden {
   transform: translateX(-100%);
 }
-
 
 /* Styling everything */
 
@@ -164,30 +174,36 @@ export default {
   padding: 0;
 }
 
-#app > div > div.v-sidebar-menu.vsm_collapsed > div > div.vsm--mobile-item > div.vsm--item.vsm--item_open > div {
+#app
+  > div
+  > div.v-sidebar-menu.vsm_collapsed
+  > div
+  > div.vsm--mobile-item
+  > div.vsm--item.vsm--item_open
+  > div {
   overflow: hidden !important;
 }
 
 /* Styling icons */
 
 .v-sidebar-menu .vsm--link_level-1 .vsm--icon {
-    background-color: transparent;
-    padding: 5px;
+  background-color: transparent;
+  padding: 5px;
 }
 
 /* Styling items and icons on hover */
 
 .v-sidebar-menu .vsm--link:hover {
-  background-color: var(--sidebar-hover)
+  background-color: var(--sidebar-hover);
 }
 
 .v-sidebar-menu.vsm_collapsed .vsm--link_level-1:hover .vsm--icon {
   background-color: var(--sidebar-hover);
 }
 
-/* Styling expanded item  and icon */
+/* Styling expanded item and icon */
 
-.v-sidebar-menu.vsm_expanded .vsm--item_open .vsm--link_level-1   {
+.v-sidebar-menu.vsm_expanded .vsm--item_open .vsm--link_level-1 {
   background-color: var(--sidebar-dropdown-active);
 }
 
@@ -203,4 +219,19 @@ export default {
   background-color: var(--sidebar-hover);
 }
 
+/* Removing box shadow */
+
+#app > div > div.v-sidebar-menu.vsm_expanded > div > div > div > a {
+  box-shadow: none;
+}
+
+#app > div > div.v-sidebar-menu.vsm_collapsed > div > div.vsm--list > div > a {
+  box-shadow: none;
+}
+
+/* Menu items expanding */
+
+/* .v-sidebar-menu .vsm--mobile-item {
+  display: none;
+} */
 </style>
