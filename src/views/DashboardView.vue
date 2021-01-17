@@ -3,16 +3,9 @@
     <!-- The Navbar -->
     <the-navbar>
       <b-nav-item @click="toggleSidebar">
-      <font-awesome-icon
-        icon="bars"
-        size="lg"
-        class="theme-logo"
-        
-      />
+        <font-awesome-icon icon="bars" size="lg" class="theme-logo" />
       </b-nav-item>
     </the-navbar>
-
-    
 
     <!-- Main Container -->
     <div
@@ -25,11 +18,8 @@
       <div class="overlay" @click="toggleSidebar"></div>
     </div>
 
-
     <!-- The Sidebar -->
     <the-sidebar :sidebardata="sidebardata"></the-sidebar>
-
-
   </div>
 </template>
 
@@ -48,9 +38,12 @@ export default {
     return {
       sidebardata: {
         collapsed: window.innerWidth <= 1090 ? true : false,
+        showChild: false,
+        hideToggle: true,
+        disableHover: true,
         widthCollapsed: "50px",
         width: "212px",
-        hideOnMobile: window.innerWidth <= 600 ? true : false
+        hideOnMobile: window.innerWidth <= 600 ? true : false,
       },
     };
   },
@@ -80,8 +73,11 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+
 .dashboard-view {
-  background-color: var(--cork-background);
+  background-color: var(--main-background);
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .main-container {
@@ -96,7 +92,7 @@ export default {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--overlay-background);
   z-index: 1035 !important;
   transition: all 0.5s ease-in-out;
   top: 0;
@@ -131,22 +127,4 @@ export default {
   }
 }
 
-/* @media (max-width: 900px) {
-  .main-container.sidebarOpen .overlay {
-  display: block;
-}
-} */
-
-/* Sidebar styling - adding padding */
-
-/* .main-container.sidebarOpen + .v-sidebar-menu .vsm--item {
-  padding-left: 15px;
-}
-
-.v-sidebar-menu .vsm--item {
-  padding-left: 0px;
-  padding-right: 15px;
-  margin-bottom: 4px;
-  
-} */
 </style>

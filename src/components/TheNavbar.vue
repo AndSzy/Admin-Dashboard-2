@@ -72,16 +72,21 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+
 
 .navbar {
   z-index: 9999;
-  font-family: "Nunito Sans", sans-serif;
-  background-color: var(--darkblue) !important;
+  background-color: var(--navbar-background) !important;
   height: 55px;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--navbar-color) !important;
+}
+
+
 .navbar-brand {
+  color: var(--navbar-color) !important;
   display: flex;
   align-items: center;
   padding-left: 14px;

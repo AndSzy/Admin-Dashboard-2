@@ -2,12 +2,11 @@
   <sidebar-menu
     :menu="menu"
     :collapsed="sidebardata.collapsed"
-    :showChild="false"
-    :hideToggle="true"
+    :showChild="sidebardata.showChild"
+    :hideToggle="sidebardata.hideToggle"
     :width="sidebardata.width"
     :widthCollapsed="sidebardata.widthCollapsed"
-    :relative="false"
-    :disableHover="true"
+    :disableHover="sidebardata.disableHover"
     :class="{hidden: sidebardata.hideOnMobile}"
   >
     <template v-slot:toggle-icon>
@@ -118,26 +117,17 @@ export default {
 
 /* Collapsing the sidebar */
 
-/* .v-sidebar-menu {
-  transition: 0.3s all;
-} */
-
-
 .v-sidebar-menu.vsm_collapsed.hidden {
   transform: translateX(-100%);
 }
 
-/* .v-sidebar-menu.hidden {
-  transform: translateX(-100%);
-} */
 
 /* Styling everything */
 
 .v-sidebar-menu {
   z-index: 9999;
-  font-family: "Nunito Sans", sans-serif;
-  /* border-right: 1px solid #000342; */
-  background-color: var(--steelblue);
+  transition: 0.3s all;
+  background-color: var(--sidebar-background);
   position: fixed;
   top: 55px;
   height: 100vh;
@@ -145,18 +135,14 @@ export default {
 
 /* Styling items */
 
-
 /* Styling first child */
 
 .v-sidebar-menu .vsm--item:first-child {
   margin-top: 21px;
 }
 
-
-
 .v-sidebar-menu .vsm--item .vsm--link {
   border-radius: 6px;
-  /* padding: 0; */
 }
 
 /* Styling items text */
@@ -170,13 +156,17 @@ export default {
 /* Styling dropdown lists */
 
 .v-sidebar-menu .vsm--dropdown .vsm--list {
-  background-color: var(--steelblue);
+  overflow: hidden;
+  background-color: var(--sidebar-background);
 }
 
 .v-sidebar-menu .vsm--dropdown .vsm--item {
   padding: 0;
 }
 
+#app > div > div.v-sidebar-menu.vsm_collapsed > div > div.vsm--mobile-item > div.vsm--item.vsm--item_open > div {
+  overflow: hidden !important;
+}
 
 /* Styling icons */
 
@@ -185,40 +175,32 @@ export default {
     padding: 5px;
 }
 
-
-
 /* Styling items and icons on hover */
 
 .v-sidebar-menu .vsm--link:hover {
-  background-color: var(--darkblue)
+  background-color: var(--sidebar-hover)
 }
 
 .v-sidebar-menu.vsm_collapsed .vsm--link_level-1:hover .vsm--icon {
-  background-color: var(--darkblue);
+  background-color: var(--sidebar-hover);
 }
 
 /* Styling expanded item  and icon */
 
 .v-sidebar-menu.vsm_expanded .vsm--item_open .vsm--link_level-1   {
-  background-color: #42809d;
+  background-color: var(--sidebar-dropdown-active);
 }
-
-/* #42809d */
 
 .v-sidebar-menu.vsm_expanded .vsm--item_open .vsm--link_level-1 .vsm--icon {
   background-color: transparent;
 }
 
 .v-sidebar-menu .vsm--mobile-bg {
-  background-color: var(--darkblue);
+  background-color: var(--sidebar-hover);
 }
 
 .v-sidebar-menu.vsm_collapsed .vsm--link_level-1.vsm--link_hover .vsm--icon {
-  background-color: var(--darkblue);
+  background-color: var(--sidebar-hover);
 }
-
-
-
-
 
 </style>

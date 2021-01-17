@@ -15,9 +15,24 @@
 
 <style>
 :root {
-  --darkblue: #33637a;
+  /* Navbar */
+  --navbar-background: #33637a;
+  --navbar-color: #fff;
+
+  /* Sidebar */
+  --sidebar-background: #2d7293;
+  --sidebar-hover: #33637a;
+  --sidebar-dropdown-active: #42809d;
+
+  /* Main */
+  --main-background: #e7e9ee;
+
+  /* Overlay */
+  --overlay-background: rgba(0, 0, 0, 0.4);
+
+  /* --darkblue: #33637a;  
   --steelblue: #2d7293;
-  --cork-background: #e7e9ee;
+  --cork-background: #e7e9ee; */
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
