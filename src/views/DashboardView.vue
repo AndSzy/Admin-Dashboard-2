@@ -2,9 +2,14 @@
   <div class="dashboard-view">
     <!-- The Navbar -->
     <the-navbar>
-      <b-nav-item @click="toggleSidebar">
-        <font-awesome-icon icon="bars" size="lg" class="theme-logo" />
-      </b-nav-item>
+      <template>
+        <b-nav-item @click="toggleSidebar">
+          <font-awesome-icon icon="bars" size="lg" class="theme-logo" />
+        </b-nav-item>
+      </template>
+      <template v-slot:breadcrumb>
+        <the-breadcrumbs></the-breadcrumbs>
+      </template>
     </the-navbar>
 
     <!-- Main Container -->
@@ -24,6 +29,7 @@
 </template>
 
 <script>
+import TheBreadcrumbs from '../components/TheBreadcrumbs.vue';
 import TheNavbar from "../components/TheNavbar.vue";
 import TheSidebar from "../components/TheSidebar.vue";
 import Draggable from "./Draggable.vue";
@@ -33,6 +39,7 @@ export default {
     TheNavbar,
     TheSidebar,
     Draggable,
+    TheBreadcrumbs,
   },
   data() {
     return {
@@ -44,6 +51,83 @@ export default {
         widthCollapsed: "50px",
         width: "212px",
         hideOnMobile: window.innerWidth <= 600 ? true : false,
+        menu: [
+        {
+          href: "/",
+          title: "Home",
+          icon: {
+            element: "font-awesome-icon",
+            attributes: {
+              icon: "home",
+            },
+          },
+        },
+        {
+          href: "/dashboard/first",
+          title: "Vue Draggable",
+          icon: {
+            element: "font-awesome-icon",
+            attributes: {
+              icon: "arrows-alt",
+            },
+          },
+        },
+        {
+          href: "/dashboard",
+          title: "Sidebar",
+          icon: {
+            element: "font-awesome-icon",
+            attributes: {
+              icon: "adjust",
+            },
+          },
+        },
+
+        {
+          //   href: "/",
+          title: "Charts",
+          icon: {
+            element: "font-awesome-icon",
+            attributes: {
+              icon: "chart-pie",
+            },
+          },
+          child: [
+            {
+              //   href: "/charts/sublink",
+              title: "Line",
+              icon: {
+                element: "font-awesome-icon",
+                attributes: {
+                  icon: "chart-line",
+                },
+              },
+            },
+
+            {
+              //   href: "/charts/sublink",
+              title: "Bar",
+              icon: {
+                element: "font-awesome-icon",
+                attributes: {
+                  icon: "chart-bar",
+                },
+              },
+            },
+
+            {
+              //   href: "/charts/sublink",
+              title: "Gauge",
+              icon: {
+                element: "font-awesome-icon",
+                attributes: {
+                  icon: "tachometer-alt",
+                },
+              },
+            },
+          ],
+        },
+      ], 
       },
     };
   },
@@ -126,5 +210,4 @@ export default {
     display: none;
   }
 }
-
 </style>

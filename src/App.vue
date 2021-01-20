@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav" v-if="this.$route.path !== '/dashboard'">
+    <div id="nav" v-if="this.$route.path !== '/dashboard' && this.$route.path !== '/second' && this.$route.path !== '/dashboard/first'">
+    
       <router-link to="/">Home</router-link> |
       <router-link to="/draggable">Vue Draggable</router-link> |
       <router-link to="/draggable-swap">Vue Draggable - Swap</router-link> |

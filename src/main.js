@@ -25,6 +25,10 @@ library.add(fas)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
+// Vue Breadcrumbs
+import VueBreadcrumbs from 'vue-2-breadcrumbs';
+Vue.use(VueBreadcrumbs);
+
 // Vue sidebar manu must be global
 
 import VueSidebarMenu from 'vue-sidebar-menu'

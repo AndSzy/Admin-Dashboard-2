@@ -35,8 +35,24 @@ const routes = [
   },
   {
     path: '/dashboard',
+    alias: '/second',
     name: 'Dashboard',
-    component: () => import('../views/DashboardView.vue')
+    component: () => import('../views/DashboardView.vue'),
+    meta: {
+      breadcrumb: "Dashboard"
+    }
+  },
+  {
+    path: '/dashboard/first',
+    // alias: '/second',
+    name: 'Dashboard',
+    component: () => import('../views/DashboardView.vue'),
+    meta: {
+      breadcrumb: {
+        label: "First",
+        parent: "Dashboard"
+      }
+    }
   },
   {
     path: '/navbar',
@@ -45,8 +61,12 @@ const routes = [
   },
   {
     path: '/breadcrumbs',
+
     name: 'Breadcrumbs',
-    component: () => import('../views/BreadcrumbsView.vue')
+    component: () => import('../views/BreadcrumbsView.vue'),
+    meta: {
+      breadcrumb: 'Home'
+    }
   }
 ]
 
