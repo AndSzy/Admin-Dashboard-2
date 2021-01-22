@@ -31,9 +31,9 @@ export default {
 .myDatepicker-container {
   display: flex;
 }
-.myDatepicker input {
+/* .myDatepicker input {
     background-color: rgb(214, 203, 203);
-}
+} */
 
 .myDatepicker input:hover {
     cursor: pointer;

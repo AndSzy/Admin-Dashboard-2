@@ -17,7 +17,8 @@
       class="main-container"
       :class="{ sidebarOpen: !sidebardata.collapsed }"
     >
-      <draggable></draggable>
+      <!-- <draggable></draggable> -->
+      <draggable-with-date></draggable-with-date>
 
       <!-- Overlay -->
       <div class="overlay" @click="toggleSidebar"></div>
@@ -32,14 +33,16 @@
 import TheBreadcrumbs from '../components/TheBreadcrumbs.vue';
 import TheNavbar from "../components/TheNavbar.vue";
 import TheSidebar from "../components/TheSidebar.vue";
-import Draggable from "./Draggable.vue";
+import DraggableWithDate from "./DraggableWithDate.vue";
+// import Draggable from "./Draggable.vue";
 
 export default {
   components: {
     TheNavbar,
     TheSidebar,
-    Draggable,
+    // Draggable,
     TheBreadcrumbs,
+    DraggableWithDate
   },
   data() {
     return {

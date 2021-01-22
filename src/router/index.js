@@ -24,6 +24,11 @@ const routes = [
     component: () => import('../views/DraggableWithSwapView.vue')
   },
   {
+    path: '/draggable-datepicker',
+    name: 'DraggableDate',
+    component: () => import('../views/DraggableWithDate.vue')
+  },
+  {
     path: '/sidebar',
     name: 'Sidebar',
     component: () => import('../views/SidebarView.vue')
@@ -33,6 +38,7 @@ const routes = [
     name: 'Datepicker',
     component: () => import('../views/DatepickerView.vue')
   },
+
   {
     path: '/dashboard',
     alias: '/second',

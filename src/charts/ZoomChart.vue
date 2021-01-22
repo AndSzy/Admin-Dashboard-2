@@ -38,6 +38,7 @@
 export default {
   props: ["chart"],
   mounted() {
+    // Showing less data at the begining
     let random = Math.floor(Math.random() * 10) + 5;
     this.showPeriod(random);
   },

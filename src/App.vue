@@ -5,6 +5,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/draggable">Vue Draggable</router-link> |
       <router-link to="/draggable-swap">Vue Draggable - Swap</router-link> |
+      <router-link to="/draggable-datepicker">Vue Draggable - Datepicker</router-link> |
       <router-link to="/sidebar">Sidebar</router-link> |
       <router-link to="/datepicker">Datepicker</router-link> |
       <router-link to="/navbar">Navbar</router-link> |
@@ -32,9 +33,15 @@
   /* Overlay */
   --overlay-background: rgba(0, 0, 0, 0.4);
 
+  /* Card */
+  --card-background: #221f1f;
+
+  /* Grid */
+  /* --cork-background: #e7e9ee; */
+
   /* --darkblue: #33637a;  
-  --steelblue: #2d7293;
-  --cork-background: #e7e9ee; */
+  --steelblue: #2d7293; */
+  
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
