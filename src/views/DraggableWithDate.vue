@@ -6,7 +6,7 @@
         <!-- Chart with custom datepicker -->
         <chart-with-custom-datepicker :chart="item" v-model="pickerdata">
           <!-- My Datepicker -->
-          <my-datepicker v-model="pickerdata"></my-datepicker>
+          <!-- <my-datepicker v-model="pickerdata"></my-datepicker> -->
           <my-date-pick-component v-model="pickerdata"></my-date-pick-component>
         </chart-with-custom-datepicker>
       </the-card>
@@ -22,7 +22,7 @@ import draggable from "vuedraggable";
 import TheCard from "../components/TheCard.vue";
 
 // Datepicker added here:
-import MyDatepicker from "../components/MyDatepicker.vue";
+// import MyDatepicker from "../components/MyDatepicker.vue";
 import ChartWithCustomDatepicker from "../charts/ChartWithCustomDatepicker.vue";
 
 // Second Datepicker:
@@ -34,15 +34,16 @@ export default {
   components: {
     draggable,
     TheCard,
-    MyDatepicker,
+    // MyDatepicker,
     ChartWithCustomDatepicker,
     MyDatePickComponent
   },
   data() {
     return {
       pickerdata: {
-        start: new Date(),
-        end: new Date(),
+        breakpoint: 800,
+        start: '2013-08-01',
+        end: '2013-09-01',
       },
       dataset1,
       dataset2,

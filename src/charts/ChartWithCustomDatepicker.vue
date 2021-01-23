@@ -16,18 +16,14 @@
         <b-button @click="showPeriod(chart.dataset.length - 1)" size="sm"
           >All</b-button
         >
+      </b-row>
+
+      <b-row>
         <b-form inline>
           <!-- Slot for custom datepicker -->
           <slot></slot>
         </b-form>
       </b-row>
-
-      <!-- <b-row align-h="start">
-        <b-form inline> -->
-      <!-- Slot for custom datepicker -->
-      <!-- <slot></slot>
-        </b-form>
-      </b-row> -->
     </b-container>
     <zingchart
       :data="chartData"
@@ -82,7 +78,7 @@ export default {
           handle: {
             backgroundColor: "#2d596d",
             height: "15px",
-          }
+          },
         },
         scaleX: {
           label: { text: "Time" },
@@ -144,9 +140,10 @@ export default {
       this.showCustom(this.value.start, this.value.end);
     },
     zoomEvent(e) {
-      console.log(e.kmin);
-      this.value.start = new Date(e.kmin);
-      this.value.end = new Date(e.kmax);
+      // Changing to format that is accepted by MyDatePickComponent
+      let options = { year: "numeric", month: "numeric", day: "numeric" };
+      this.value.start = new Date(e.kmin).toLocaleString("fr-CA", options);
+      this.value.end = new Date(e.kmax).toLocaleString("fr-CA", options);
     },
     showPeriod(period) {
       const lastEntry = this.chart.dataset.length - 1;
@@ -188,5 +185,9 @@ export default {
 
 .buttons .btn:focus {
   box-shadow: none;
+}
+
+.buttons .form-inline {
+  padding-left: 8px;
 }
 </style>
