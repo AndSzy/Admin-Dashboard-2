@@ -15,7 +15,7 @@
     <!-- Main Container -->
     <div
       class="main-container"
-      :class="{ sidebarOpen: !sidebardata.collapsed }"
+      :class="{ sidebarOpen: !sidebardata.collapsed, mobile: sidebardata.hideOnMobile }"
     >
       <!-- <draggable></draggable> -->
       <draggable-with-date></draggable-with-date>

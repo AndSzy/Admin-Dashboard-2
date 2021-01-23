@@ -7,6 +7,7 @@
         <chart-with-custom-datepicker :chart="item" v-model="pickerdata">
           <!-- My Datepicker -->
           <my-datepicker v-model="pickerdata"></my-datepicker>
+          <my-date-pick-component v-model="pickerdata"></my-date-pick-component>
         </chart-with-custom-datepicker>
       </the-card>
     </transition-group>
@@ -24,6 +25,10 @@ import TheCard from "../components/TheCard.vue";
 import MyDatepicker from "../components/MyDatepicker.vue";
 import ChartWithCustomDatepicker from "../charts/ChartWithCustomDatepicker.vue";
 
+// Second Datepicker:
+
+import MyDatePickComponent from "../components/MyDatePickComponent.vue";
+
 export default {
   name: "Home",
   components: {
@@ -31,6 +36,7 @@ export default {
     TheCard,
     MyDatepicker,
     ChartWithCustomDatepicker,
+    MyDatePickComponent
   },
   data() {
     return {

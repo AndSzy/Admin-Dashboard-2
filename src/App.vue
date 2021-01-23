@@ -34,7 +34,9 @@
   --overlay-background: rgba(0, 0, 0, 0.4);
 
   /* Card */
-  --card-background: #221f1f;
+  --card-background: #33637a;
+
+  /* #221f1f   dark theme background */
 
   /* Grid */
   /* --cork-background: #e7e9ee; */
